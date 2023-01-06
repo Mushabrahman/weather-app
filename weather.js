@@ -14,11 +14,12 @@ fetch(
 )
   .then((response) => response.json())
   .then((response) => {
+    console.log(response)
+humid.innerHTML = response.humidity
 temp2.innerHTML =response.temp 
 temp.innerHTML =response.temp
-feels_like.innerHTML =response.feels_like 
-humidity2.innerHTML =response.humidity 
-humidity.innerHTML =response.humidity 
+feels_like.innerHTML =response.feels_like
+humidity.innerHTML = response.humidity 
 min_temp.innerHTML =response.min_temp 
 max_temp.innerHTML =response.max_temp 
 wind_speed2.innerHTML =response.wind_speed 
@@ -27,7 +28,6 @@ wind_degrees.innerHTML =response.wind_degrees
 sunrise.innerHTML =response.sunrise 
 sunset.innerHTML =response.sunset 
 feels.innerHTML=response.feels_like
-
   })
   .catch(err => console.error(err));
 }
@@ -64,6 +64,8 @@ cities.map((city)=>{
         
         document.getElementById(`${city}Wind_speed`).innerHTML = response.wind_speed 
         document.getElementById(`${city}Wind_degrees`).innerHTML = response.wind_degrees 
+
+        console.log(response, ` : ${city}`)
       }
     )
   return
